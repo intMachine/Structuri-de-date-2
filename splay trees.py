@@ -188,16 +188,6 @@ class SplayTree:
 
 
 
-    def preorder(self):
-        self._preorder(self.root)
-        print("")
-
-    def _preorder(self, node):
-        if node != None:
-            print(node.data, end=" ")
-            self._preorder(node.left)
-            self._preorder(node.right)
-
 
 
     def interval(self, x, y):
