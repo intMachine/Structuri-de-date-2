@@ -187,16 +187,11 @@ class SplayTree:
         return x
 
 
-
-
-
     def interval(self, x, y):
         for i in range(x + 1, y):
             if self.find_node(i) != None:
                 out.write(str(i) + " ")
         out.write("\n")
-
-
 
 Q = int(inp.readline())
 ST = SplayTree()
