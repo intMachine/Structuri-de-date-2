@@ -193,21 +193,22 @@ class SplayTree:
                 out.write(str(i) + " ")
         out.write("\n")
 
-Q = int(inp.readline())
 ST = SplayTree()
+Q = int(inp.readline())
+switcher = {
+    "1":ST.insert,
+    "2":ST.delete,
+    "3":ST.find,
+    "4":ST.predecessor,
+    "5":ST.successor,
+    "6":ST.interval
+}
+
 for operation in inp.readlines():
-    if int(operation[0]) == 1:
-        ST.insert(int(operation[2:]))
-    if int(operation[0]) == 2:
-        ST.delete(int(operation[2:]))
-    if int(operation[0]) == 3:
-        ST.find(int(operation[2:]))
-    if int(operation[0]) == 4:
-        ST.predecessor(int(operation[2:]))
-    if int(operation[0]) == 5:
-        ST.successor(int(operation[2:]))
-    if int(operation[0]) == 6:
-        ST.interval(int(operation[2:operation.find(" ", 2)]), int(operation[operation.find(" ", 2):]))
+    if operation[0] in ("1", "2", "3", "4", "5"):
+        switcher[operation[0]](int(operation[2:]))
+    else:
+       switcher[operation[0]](int(operation[2:operation.find(" ", 2)]), int(operation[operation.find(" ", 2):]))
 
 
 
